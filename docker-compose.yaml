@@ -1,0 +1,9 @@
+version: "3"
+services:
+  my-app:
+    container_name: hello-app
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "0.0.0.0:32777:32777"

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: Test
+  ports:
+    - protocol: TCP
+      port: 32777
+      targetPort: 32777
+  type: NodePort
