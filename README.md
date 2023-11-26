@@ -96,6 +96,7 @@ External Traffic Policy:  Cluster
 Events:                   <none>
 ```
 
+У меня порты пробразываются по отдельности
 ```
 ztvgzh@Ubuntu:~/Documents/app$ kubectl port-forward pod/test-6bbcbccb7f-ln474 32777:32777
 Forwarding from 127.0.0.1:32777 -> 32777
@@ -107,7 +108,7 @@ Handling connection for 32777
 
 ## Result
 
-Go to your web-browser and type `localhost:32777`
+Результат увидим на `localhost:32777` в браузере
 
 ## Delete everything
 
