@@ -64,7 +64,8 @@ service/my-service created
 ```
 Проверяем:
 
-```ztvgzh@Ubuntu:~/Documents/app$ kubectl get all
+```
+ztvgzh@Ubuntu:~/Documents/app$ kubectl get all
 NAME                        READY   STATUS    RESTARTS   AGE
 pod/test-6bbcbccb7f-j856w   1/1     Running   0          14s
 pod/test-6bbcbccb7f-ln474   1/1     Running   0          15s
