@@ -49,17 +49,22 @@ spec:
 
 ## Commands
 
+Запустили minikube:
 ```
 minikube start
 # wait until start
 ```
+Затем через kubectl (alias) запускаем деплоймент и сервис:
 
 ```
 ztvgzh@Ubuntu:~/Documents/app$ kubectl apply -f deployment.yaml 
 deployment.apps/test created
 ztvgzh@Ubuntu:~/Documents/app$ kubectl apply -f service.yaml 
 service/my-service created
-ztvgzh@Ubuntu:~/Documents/app$ kubectl get all
+```
+Проверяем:
+
+```ztvgzh@Ubuntu:~/Documents/app$ kubectl get all
 NAME                        READY   STATUS    RESTARTS   AGE
 pod/test-6bbcbccb7f-j856w   1/1     Running   0          14s
 pod/test-6bbcbccb7f-ln474   1/1     Running   0          15s
@@ -74,6 +79,7 @@ deployment.apps/test   2/2     2            2           15s
 NAME                              DESIRED   CURRENT   READY   AGE
 replicaset.apps/test-6bbcbccb7f   2         2         2       15s
 ```
+Получаем с помощью команды describe больше информации о сервисе:
 
 ```
 ztvgzh@Ubuntu:~/Documents/app$ kubectl describe service/my-service
@@ -96,7 +102,7 @@ External Traffic Policy:  Cluster
 Events:                   <none>
 ```
 
-У меня порты пробразываются по отдельности
+Делаем проброс портов через port-forward, у меня они пробразываются по отдельности:
 ```
 ztvgzh@Ubuntu:~/Documents/app$ kubectl port-forward pod/test-6bbcbccb7f-ln474 32777:32777
 Forwarding from 127.0.0.1:32777 -> 32777
@@ -108,7 +114,8 @@ Handling connection for 32777
 
 ## Result
 
-Результат увидим на `localhost:32777` в браузере
+Результат можно увидеть на `localhost:32777` в браузере:
+<div align = "center"><img src="https://github.com/ztvgzh/biocad_test/blob/master/result.jpg"></div>
 
 ## Delete everything
 
@@ -122,6 +129,6 @@ minikube stop
 # wait until finish
 ```
 
-## Схема
+## Схемы
 <div align = "center"><img src="https://github.com/ztvgzh/biocad_test/blob/master/depl.jpg"></div>
 <div align = "center"><img src="https://github.com/ztvgzh/biocad_test/blob/master/serv.jpg"></div>
